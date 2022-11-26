@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using API.Entities;
 
 namespace API.Data
@@ -6,7 +8,6 @@ namespace API.Data
     {
         public static void Initialize(StoreContext context)
         {
-            // Check if there is already any product in database
             if (context.Products.Any()) return;
 
             var products = new List<Product>
@@ -208,8 +209,6 @@ namespace API.Data
                     QuantityInStock = 100
                 },
             };
-
-            // Iterate over each product and save changes
 
             foreach (var product in products)
             {
